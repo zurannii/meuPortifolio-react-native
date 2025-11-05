@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         width: 19,
         height: 18,
         marginRight: 10,
-        gap: 15,
+        color: COLORS.primaryText,
     },
     idiomaText: {
         fontSize: 16,
@@ -168,7 +168,4 @@ const styles = StyleSheet.create({
     bold: {
         fontWeight: 'bold',
     },
-
-
-
 });
