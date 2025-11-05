@@ -23,10 +23,10 @@ export default function HomeScreen({ navigation }: Props) {
             contentContainerStyle={styles.container}>
 
             <View style={styles.profileContainer}>
-               {/*  <Image
-                    source={require('../assets/minhafotojája.jpg')}
+                <Image
+                    source={require('../../assets/rob-pixels.jpg')}
                     style={styles.profileImage}
-                /> */}
+                />
 
                 <Text style={styles.nameText}>Roberta Nascimento</Text>
                 <Text style={styles.subtitle}>UI/UX Designer & Developer</Text>
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     socialContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 15,
+        gap: 15,
     },
     socialIcon: {
         width: 40,
@@ -135,13 +135,16 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderWidth: 1.5,
         borderColor: COLORS.borderColor,
+        gap: 15,
     },
     navigationContainer: {
         width: '100%',
-        gap: 15,
+        gap: 20,
+        alignItems: 'center',
     },
     navButton: {
-        width: '100%',
+        width: 347,
+        height: 110,
         backgroundColor: COLORS.cardBackground,
         padding: 20,
         borderRadius: 12,
