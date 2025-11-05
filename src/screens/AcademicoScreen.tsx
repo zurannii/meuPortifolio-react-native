@@ -11,7 +11,10 @@ import {
 import { NavigationProp } from "../navigation/types";
 import { COLORS } from '../styles/theme';
 
-export default function AppNavigator({ navigation }: Props ) {
+export default function AcademicoScreen() {
     return (
-    )
+            <View>
+                <Text>ProjetosScreen</Text>
+            </View>
+        ); 
 }

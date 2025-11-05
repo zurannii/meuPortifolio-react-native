@@ -23,18 +23,18 @@ export default function HomeScreen({ navigation }: Props) {
             contentContainerStyle={styles.container}>
 
             <View style={styles.profileContainer}>
-                <Image
+               {/*  <Image
                     source={require('../assets/minhafotojája.jpg')}
                     style={styles.profileImage}
-                />
+                /> */}
 
                 <Text style={styles.nameText}>Roberta Nascimento</Text>
                 <Text style={styles.subtitle}>UI/UX Designer & Developer</Text>
 
                 <View style={styles.socialContainer}>
-                    <View style={styles.socialContainer} />
-                    <View style={styles.socialContainer} />
-                    <View style={styles.socialContainer} />
+                    <View style={styles.socialIcon} />
+                    <View style={styles.socialIcon} />
+                    <View style={styles.socialIcon} />
                 </View>
             </View>
 
@@ -91,11 +91,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: COLORS.primaryDark,
     },
-    nameText:{
+    nameText: {
         fontSize: 16,
         color: COLORS.primaryText,
         fontWeight: 'bold',
-        marginBottom: 20,
         textAlign: 'center',
     },
     title: {
@@ -106,6 +105,9 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 18,
+        color: COLORS.secundaryText,
+        textAlign: 'center',
+        marginBottom: 20,
     },
     ScrollView: {
         flex: 1,
@@ -135,8 +137,8 @@ const styles = StyleSheet.create({
         borderColor: COLORS.borderColor,
     },
     navigationContainer: {
-       width: '100%',
-       gap: 15,
+        width: '100%',
+        gap: 15,
     },
     navButton: {
         width: '100%',
@@ -152,11 +154,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         color: COLORS.primaryText,
-        marginBottom: 5,   
+        marginBottom: 5,
     },
     navSubtitle: {
         fontSize: 14,
-        color: 'colors.secundaryText',
+        color: COLORS.secundaryText,
         lineHeight: 20,
     },
 });

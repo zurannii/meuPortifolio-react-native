@@ -3,16 +3,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './types';
 
 import HomeScreen from '../screens/HomeScreen';
-//import SobreMimScreen from '../screens/SobreMimScreen';
-//import ProfissionalScreen from '../screens/ProfissionalScreen';
-//import AcademicoScreen from '../screens/AcademicoScreen';
-//import ProjetosScreen from '../screens/ProjetosScreen';
+import SobreMimScreen from '../screens/SobreMimScreen';
+import ProfissionalScreen from '../screens/ProfissionalScreen';
+import AcademicoScreen from '../screens/AcademicoScreen';
+import ProjetosScreen from '../screens/ProjetosScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export default function AppNavigator() {
     return (
-        {/* <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator initialRouteName="Home">
             <Stack.Screen
              name="Home"
               component={HomeScreen}
@@ -38,6 +38,6 @@ export default function AppNavigator() {
                 component={ProjetosScreen}
                 options={{ title: 'Projetos' }}
             />
-        </Stack.Navigator> */}
+        </Stack.Navigator>
     );
 }
