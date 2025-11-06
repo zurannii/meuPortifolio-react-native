@@ -55,7 +55,8 @@ export default function SobreMimScreen() {
                 <Text style={styles.idiomasTitle}>Idiomas:</Text>
 
                 <View style={styles.idiomaItem}>
-                    <Text style={styles.idiomaIcon}>★</Text>
+                    <Image style={styles.idiomaIcon} 
+                     source={require('../../assets/small-star.png')}/>
                     <Text style={styles.idiomaText}><Text style={styles.bold}>Inglês:</Text> Intermediário</Text>
                 </View>
 
