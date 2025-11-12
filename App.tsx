@@ -1,26 +1,26 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './src/navigation/AppNavigator';
-import { NavigationContainer } from '@react-navigation/native'; 
-import { COLORS } from './src/styles/theme';
+import { StatusBar } from 'expo-status-bar';
 
+import { ThemeProvider, useTheme } from './src/context/ThemeContext';
 
-export default function App() {
+function AppContent() {
+
+  const { theme } = useTheme();
+
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style={theme === 'light' ? 'dark' : 'light'} />
       <AppNavigator />
     </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: COLORS.primaryDark,
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: COLORS.primaryText,
-  },
-});
+export default function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}

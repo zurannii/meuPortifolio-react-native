@@ -1,25 +1,108 @@
-import React from "react";
+import React, { useMemo } from 'react';
 import {
     View,
     Text,
     StyleSheet,
-    Button,
     Image,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    Linking
 } from "react-native";
-import { NavigationProp } from "../navigation/types";
-import { COLORS } from '../styles/theme';
+import { NavigationProp } from "../navigation/types"; 
+import { useTheme } from '../context/ThemeContext';
 
 type Props = {
     navigation: NavigationProp;
 };
 
-
 export default function HomeScreen({ navigation }: Props) {
+
+    const { colors } = useTheme();
+
+    const styles = useMemo(() => StyleSheet.create({
+    scrollView: {
+        flex: 1,
+        backgroundColor: colors.primaryDark,
+    },
+    container: {
+        flexGrow: 1,
+        alignItems: 'center',
+        paddingVertical: 40,
+        paddingHorizontal: 20,
+        paddingTop: 60,
+        backgroundColor: colors.primaryDark,
+    },
+    nameText: {
+        fontSize: 16,
+        color: colors.primaryText,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textAlign: 'center',
+        color: colors.primaryText,
+    },
+    subtitle: {
+        fontSize: 18,
+        color: colors.secundaryText,
+        textAlign: 'center',
+        marginBottom: 20,
+    },
+    profileContainer: {
+        alignItems: 'center',
+        marginBottom: 30,
+    },
+    profileImage: {
+        width: 130,
+        height: 130,
+        borderRadius: 65,
+        borderColor: colors.borderColor,
+        borderWidth: 2,
+    },
+    socialContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        gap: 15,
+        marginBottom: 30,
+    },
+    socialIcon: {
+        width: 40, 
+        height: 40,
+        resizeMode: 'contain', 
+    },
+    navigationContainer: {
+        width: '100%',
+        gap: 20,
+        alignItems: 'center',
+    },
+    navButton: {
+        width: '100%',
+        backgroundColor: colors.cardBackground,
+        padding: 20,
+        borderRadius: 12,
+        borderWidth: 2,
+        borderColor: colors.borderColor,
+        borderStyle: 'dotted',
+    },
+    navTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: colors.primaryText,
+        marginBottom: 5,
+    },
+    navSubtitle: {
+        fontSize: 14,
+        color: colors.secundaryText,
+        lineHeight: 20,
+    },
+}), [colors]);
+
     return (
         <ScrollView
-            style={styles.ScrollView}
+            style={styles.scrollView} 
             contentContainerStyle={styles.container}>
 
             <View style={styles.profileContainer}>
@@ -27,15 +110,35 @@ export default function HomeScreen({ navigation }: Props) {
                     source={require('../../assets/rob-pixels.jpg')}
                     style={styles.profileImage}
                 />
-
+                
                 <Text style={styles.nameText}>Roberta Nascimento</Text>
                 <Text style={styles.subtitle}>UI/UX Designer & Developer</Text>
+            
+            </View> 
 
-                <View style={styles.socialContainer}>
-                    <View style={styles.socialIcon} />
-                    <View style={styles.socialIcon} />
-                    <View style={styles.socialIcon} />
-                </View>
+            <View style={styles.socialContainer}>
+    
+                <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/zurannii/')}>
+                    <Image 
+                        source={require('../../assets/instagram-icon.png')} 
+                        style={styles.socialIcon} 
+                    />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => Linking.openURL('https://www.linkedin.com/in/zurannii/')}>
+                    <Image 
+                        source={require('../../assets/linkedin-icon.png')} 
+                        style={styles.socialIcon} 
+                    />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => Linking.openURL('https://github.com/zurannii/')}>
+                    <Image 
+                        source={require('../../assets/github-icon.png')} 
+                        style={styles.socialIcon} 
+                    />
+                </TouchableOpacity>
+
             </View>
 
             <View style={styles.navigationContainer}>
@@ -72,96 +175,6 @@ export default function HomeScreen({ navigation }: Props) {
                     <Text style={styles.navSubtitle}>Criações e ideias que transformei em realidade.</Text>
                 </TouchableOpacity>
             </View>
-
-
-
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    scrollView: {
-        flex: 1,
-        backgroundColor: COLORS.primaryDark,
-    },
-    container: {
-        flexGrow: 1,
-        alignItems: 'center',
-        paddingVertical: 40,
-        paddingHorizontal: 20,
-        backgroundColor: COLORS.primaryDark,
-    },
-    nameText: {
-        fontSize: 16,
-        color: COLORS.primaryText,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-    },
-    subtitle: {
-        fontSize: 18,
-        color: COLORS.secundaryText,
-        textAlign: 'center',
-        marginBottom: 20,
-    },
-    ScrollView: {
-        flex: 1,
-    },
-    profileContainer: {
-        alignItems: 'center',
-        marginBottom: 30,
-    },
-    profileImage: {
-        width: 130,
-        height: 130,
-        borderRadius: 65,
-        borderColor: COLORS.borderColor,
-        borderWidth: 2,
-        marginBottom: 20,
-    },
-    socialContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        gap: 15,
-    },
-    socialIcon: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        borderWidth: 1.5,
-        borderColor: COLORS.borderColor,
-        gap: 15,
-    },
-    navigationContainer: {
-        width: '100%',
-        gap: 20,
-        alignItems: 'center',
-    },
-    navButton: {
-        width: 347,
-        height: 110,
-        backgroundColor: COLORS.cardBackground,
-        padding: 20,
-        borderRadius: 12,
-        borderWidth: 2,
-        borderColor: COLORS.borderColor,
-        borderStyle: 'dotted',
-    },
-
-    navTitle: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: COLORS.primaryText,
-        marginBottom: 5,
-    },
-    navSubtitle: {
-        fontSize: 14,
-        color: COLORS.secundaryText,
-        lineHeight: 20,
-    },
-});
